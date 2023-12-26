@@ -12,6 +12,9 @@
           overlays = [
           ];
         };
+        cursor-as-code = pkgs.writeShellScriptBin "code" ''
+          $(which cursor) $@
+        '';
       in
       with pkgs;
       {
@@ -20,6 +23,8 @@
             python3Full
             jupyter
             graphviz
+            brev-cli
+            cursor-as-code
           ];
         };
       }
